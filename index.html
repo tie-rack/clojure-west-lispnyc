@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Clojure/West 2013</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<!--
+		To apply styles to the certain slides
+		set slide ID to get needed elements
+		-->
+	<style>
+    .gist {
+      font-size: 15px !important;
+    }
+    .gist pre.line-pre {
+      white-space: pre !important;
+    }
+		#Cover h2 {
+			margin:65px 0 0;
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#Cover p {
+			margin:10px 0 0;
+			text-align:center;
+			color:#FFF;
+			font-style:italic;
+			font-size:20px;
+			}
+			#Cover p a {
+				color:#FFF;
+				}
+		#Picture h2 {
+			color:#FFF;
+			}
+		#SeeMore h2 {
+			font-size:100px
+			}
+		#SeeMore img {
+			width:0.72em;
+			height:0.72em;
+			}
+    #clojurewest {
+      background: #fff url('pictures/clojure-west.png') no-repeat 400px 200px;
+    }
+    #aboutme {
+      background: #fff url('pictures/aol.png') no-repeat 600px 250px;
+      background-size: Auto 200px;
+    }
+    #dataflow {
+      background: #fff url('pictures/dataflow.png') no-repeat 275px;
+      background-size: Auto 500px;
+    }
+	</style>
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Clojure/West 2013</h1>
+		<p>Chris Shea.<p>
+	</header>
+	<section class="slide cover" id="Cover"><div>
+		<h2>Clojure/West 2013</h2>
+		<p>Chris Shea</p>
+    <p>For LispNYC</p>
+	</div></section>
+	<section class="slide" id="aboutme"><div>
+		<h2>About me</h2>
+    <ol>
+      <li class="next">Patch.com</li>
+      <li class="next">Scala all day</li>
+      <li class="next">MFA in Writing
+        <ul>
+          <li class="next">From an art school</li>
+        </ul>
+      </li>
+    </ol>
+	</div></section>
+	<section class="slide" id="clojurewest"><div>
+		<h2>About Clojure/West</h2>
+    <ul>
+      <li class="next">March 18-20</li>
+      <li class="next">Portand, OR</li>
+      <li class="next">Alex Miller</li>
+      <li class="next">One-night miniKanren Confo</li>
+      <li class="next">Talks will be released on InfoQ</li>
+    </ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Links</h2>
+		<ul>
+      <li><a href="http://bit.ly/clojure-west-links">This slide</a>: bit.ly/clojure-west-links</li>
+      <li><a href="https://github.com/strangeloop/clojurewest2013">GitHub repo of Clojure/West slides</a></li>
+      <li>Stuart Sierra's <a href="http://stuartsierra.com/2013/03/29/perils-of-dynamic-scope">"Perils of Dynamic Scope"</a> as a blog post</li>
+      <li>Mindbat's notes: day <a href="http://mindbat.com/2013/03/clojurewest-2013-day-one-notes/">1</a>, <a href="http://mindbat.com/2013/03/clojurewest-2013-day-two-notes/">2</a>, <a href="http://mindbat.com/2013/03/clojurewest-2013-day-three-notes/">3</a></li>
+      <li><a href="http://pedestal.io/">Pedestal</a>: <a href="https://github.com/pedestal/pedestal">repo</a>, <a href="https://github.com/pedestal/samples/blob/master/slides/pedestal-intro-slides.pdf?raw=true">slides</a> (some pictures taken from here)</li>
+      <li><a href="http://clojurescript.net/">ClojureScript-in-ClojureScript</a>: <a href="https://github.com/kanaka/clojurescript">repo</a>, <a href="http://kanaka.github.io/cljs-in-cljs-presentation/">slides</a></li>
+      <li>SynThread: <a href="https://github.com/LonoCloud/synthread">repo</a>, <a href="https://docs.google.com/presentation/d/1z4w8PEx-aEqpxNwh8qJYy96fEt-ZbpoLTPpcDSJfBJ8/edit#slide=id.p">slides</a></li>
+		</ul>
+	</div></section>
+  <section class="slide shout"><div>
+    <h2>Pedestal</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Pedestal</h2>
+    <p>
+      Yes, it's a web application framework.
+		<figure>
+			<blockquote>
+				<p>Pedestal provides a better, cohesive way to build rich client web applications in Clojure.</p>
+			</blockquote>
+		</figure>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Three cool things about Pedestal.</h2>
+    <ol>
+      <li class="next">Event rewind and replay in the browser</li>
+      <li class="next">Interceptors: better ring handlers</li>
+      <li class="next">Dataflow</li>
+    </ol>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Events</h2>
+    <p>
+      Chat sample app.
+    </p>
+    <p>
+      Open <a href="http://localhost:8080/chat-client-dev.html">this link</a> twice (once in an incognito window).
+    </p>
+    <p class="note">Remember the JS console!</p>
+	</div></section>
+  <section class="slide"><div>
+    <h2>Interceptors</h2>
+    <p>A different take on Ring middleware.</p>
+	</div></section>
+  <section class="slide"><div>
+    <h2>Ring</h2>
+    <ul>
+      <li class="next"><strong>Handler</strong>: A function that takes a <strong>request</strong> (a map) and returns a <strong>response</strong> (also a map).</li>
+      <li class="next"><strong>Middleware</strong>: A function that takes a <strong>handler</strong> and returns a <strong>handler</strong>.</li>
+    </ul>
+	</div></section>
+  <section class="slide"><div>
+    <h2>Middleware example</h2>
+    <script src="https://gist.github.com/tie-rack/5332168.js"></script>
+  </div></section>
+  <section class="slide"><div>
+    <h2>Problems with middleware</h2>
+    <ul>
+      <li class="next">Middleware calls other middleware directly.  It
+        has that knowledge <em>and</em> responsibility.</li>
+      <li class="next">Inside a middleware, you don't know anything
+        about the chain of middleware it's in.</li>
+      <li class="next">Middleware chains are bound to the thread they
+        start on.</li>
+    </ul>
+  </div></section>
+  <section class="slide"><div>
+    <h2>Interceptors</h2>
+    <pre>
+      <code>(defrecord Interceptor</code>
+      <code>  [name enter leave error pause resume])</code>
+    </pre>
+    <ul>
+      <li class="next">Interceptor fns operate
+        on <strong>contexts</strong> which contains all data associated
+        with the processing of the request.
+      </li>
+      <li class="next">Since the <strong>context</strong> describes
+        processing, it can be paused on one thread and resumed in
+        another.</li>
+    </ul>
+  </div></section>
+  <section class="slide"><div>
+    <img src="pictures/middleware.png" width="700px" />
+  </div></section>
+  <section class="slide"><div>
+    <img src="pictures/interceptors.png" width="700px" />
+  </div></section>
+  <section class="slide"><div>
+    <img src="pictures/interceptors-pause-resume.png" width="700px" />
+  </div></section>
+  <section class="slide"><div>
+    <h2>What about ring?</h2>
+    <ul>
+      <li class="next">Many popular middlewares ported to use enter/leave.</li>
+      <li class="next">Convenience methods for porting exiting middleware.</li>
+      <li class="next">Trying to get Ring to move to this model.</li>
+    </ul>
+  </div></section>
+  <section class="slide" id="dataflow"><div>
+    <h2>Dataflow</h2>
+  </div></section>
+  <section class="slide shout"><div>
+    <h2>ClojureScript-in-ClojureScript</h2>
+	</div></section>
+  <section class="slide"><div>
+    <h2>ClojureScript</h2>
+    <p>ClojureScript is a compiler for Clojure that targets JavaScript.</p>
+    <p><a href="http://himera.herokuapp.com/index.html">CLJS compilation as a service</a></p>
+    <p class="note">(defmacro unless [expr & body] `(if ~expr nil (do ~@body)))</p>
+	</div></section>
+  <section class="slide"><div>
+    <h2>ClojureScript-in-ClojureScript</h2>
+    <p>ClojureScript-in-ClojureScript is a port of the Clojure parts
+      of the ClojureScript compiler to ClojureScript.  Led by Joel
+      Martin.</p>
+    <p><a href="http://clojurescript.net/">CLJS <em>in the browser</em></a></p>
+    <p class="note">(defmacro unless [expr & body] `(if ~expr nil (do ~@body)))</p>
+	</div></section>
+  <section class="slide"><div>
+    <h2>What's done (some highlights)</h2>
+    <ul>
+      <li class="next">The Reader</li>
+      <li class="next"><code>defmacro</code></li>
+      <li class="next">ns support</li>
+      <li class="next">File I/O support</li>
+      <li class="next">so, a lot</li>
+    </ul>
+  </div></section>
+  <section class="slide"><div>
+    <h2>The path to self-hosting</h2>
+    <blockquote>
+      <p>
+        Most things compile except for some tricky macro/var/namespace interactions in core.clj/core.cljs
+      </p>
+    </blockquote>
+    <figcaption>Joel Martin</figcaption>
+  </div></section>
+  <section class="slide"><div>
+    <h2>After self-hosting</h2>
+    <ul>
+      <li class="next">Merge back into clojure/clojurescript</li>
+      <li class="next">Keep moving towards Clojure-in-Clojure
+        <ul>
+          <li class="next">ClojureScript moved some from Java to Clojure</li>
+          <li class="next">ClojureScript-in-ClojureScript is moving even more</li>
+        </ul>
+      </li>
+    </ul>
+  </div></section>
+  <section class="slide"><div>
+    <h2>But...</h2>
+    <ul>
+      <li class="next">What's a CLASSPATH to JavaScript?</li>
+      <li class="next">Replace Google Closure Compiler?</li>
+      <li class="next">ClojureScript will forever be a subset of Clojure</li>
+    </ul>
+  </div></section>
+  <section class="slide shout"><div>
+    <h2>Thanks</h2>
+  </div></section>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower/shower.min.js"></script>
+</body>
+</html>
