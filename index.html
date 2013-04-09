@@ -121,7 +121,7 @@
     <ol>
       <li class="next">Event rewind and replay in the browser</li>
       <li class="next">Interceptors: better ring handlers</li>
-      <li class="next">Dataflow</li>
+      <li class="next">App Model</li>
     </ol>
 	</div></section>
 	<section class="slide"><div>
@@ -195,8 +195,17 @@
       <li class="next">Trying to get Ring to move to this model.</li>
     </ul>
   </div></section>
-  <section class="slide" id="dataflow"><div>
-    <h2>Dataflow</h2>
+  <section class="slide"><div>
+    <h2>App Model</h2>
+    <ul>
+      <li class="next">App state is modeled as a tree.</li>
+      <li class="next">Event messages are translated into tree deltas.</li>
+      <li class="next">UI code uses those deltas.</li>
+      <li class="next">Everything else is pure functions.</li>
+    </ul>
+  </div></section>
+  <section class="slide"><div>
+    <img src="pictures/dataflow.png" height="500px"/>
   </div></section>
   <section class="slide shout"><div>
     <h2>ClojureScript-in-ClojureScript</h2>
