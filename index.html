@@ -141,6 +141,7 @@
   <section class="slide"><div>
     <h2>Ring</h2>
     <ul>
+      <li class="next">Ring is a library for abstracting the details of HTTP. Like Python's WSGI or Ruby's Rack.</li>
       <li class="next"><strong>Handler</strong>: A function that takes a <strong>request</strong> (a map) and returns a <strong>response</strong> (also a map).</li>
       <li class="next"><strong>Middleware</strong>: A function that takes a <strong>handler</strong> and returns a <strong>handler</strong>.</li>
     </ul>
@@ -168,8 +169,9 @@
     </pre>
     <ul>
       <li class="next">Interceptor fns operate
-        on <strong>contexts</strong> which contains all data associated
-        with the processing of the request.
+        on <strong>contexts</strong> which contain all data
+        associated with the processing of the request, including
+        the Ring <strong>request</strong> and <strong>response</strong>
       </li>
       <li class="next">Since the <strong>context</strong> describes
         processing, it can be paused on one thread and resumed in
